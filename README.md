@@ -1,3 +1,3 @@
 “# Learning git
 
-jkbkbk Git with QA”
+bk Git with QA”
