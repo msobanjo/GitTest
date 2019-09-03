@@ -1,5 +1,7 @@
 ﻿package com.qa.javaAssessment;
 
+import java.util.Locale;
+
 public class Assessment {
 
 	// Given a string, return a string where
@@ -32,25 +34,50 @@ public class Assessment {
 	// getBert("xxbeRTyy") ==> ""
 
 	public static String getBert(String input) {
-		/*
-		
-		
-		
-		*/
+	
 		String word = "bert";
 		
+		int firstIndex;
+		int lastIndex;
+		
+		input = input.toLowerCase(Locale.UK);
+		word = word.toLowerCase(Locale.UK);
+		
+		
+		firstIndex = input.indexOf(word);
+		lastIndex = input.lastIndexOf(word);
+		if (firstIndex == lastIndex) {
+			return "";
+		}
+		else {
+			input = input.substring(firstIndex + 4, lastIndex);
+			
+            byte [] strAsByteArray = input.getBytes(); 
+            byte [] result =  
+                       new byte [strAsByteArray.length]; 
+   
+            for (int i = 0; i<strAsByteArray.length; i++) 
+                result[i] =  
+                 strAsByteArray[strAsByteArray.length-i-1];
+            
+            input = new String(result); 
+			
+		}
+		
+		
+		/*
 		if (input.contains(word)) { 
 			
-            String temp = word + " "; 
+           // String temp = word + " "; 
             input = input.replaceAll(word, "&"); 
   
-            temp = " " + word; 
+           // temp = " " + word; 
             input = input.replaceAll(word, "&"); 
             
             
             
             for (int i = 0; i < input.length(); i++){
-            	int [] count = new int[1];
+            	//int [] count = new int[1];
             	
     		    char c = input.charAt(i);        
     		    if (c == '&') {
@@ -88,16 +115,25 @@ public class Assessment {
     		}
             
         } 
+        */
 		System.out.println(input);
+		System.out.println(firstIndex);
+		System.out.println(lastIndex);
 		
 		
 		return input;
 	}
 	public static void main(String[] args) {
-		getBert("xxbertfridgebertyy");
+	
+		//getBert("xxBertfridgebERtyy");
+		/*
 		evenlySpaced(4, 60, 9);
 		superBlock("hoopplla");
 		fizzBuzz(3);
+		*/
+		//largest("555 72 86 45 10");
+		//nMid("Chocolate", 1);
+		amISearch("I have been in Amsterdam");
 	}
 	
 
@@ -133,8 +169,14 @@ public class Assessment {
 	// nMid("Chocolate", 3) ==> "Choate"
 	// nMid("Chocolate", 1) ==> "Choclate"
 
-	public String nMid(String input, int a) {
-		return "";
+	public static String nMid(String input, int a) {
+		
+		for (int i = 0; i < a; i++){
+			int mid = input.length()/2;
+		input = input.substring(0, mid) + input.substring(mid + 1);
+		}
+		
+		return input;
 	}
 
 
@@ -181,8 +223,21 @@ public class Assessment {
 	//amISearch("I am in Amsterdam am I?") ==> 2
 	//amISearch("I have been in Amsterdam") ==> 0
 
-	public int amISearch(String arg1) {
-		return -1;
+	public static int amISearch(String arg1) {
+		arg1 = arg1.toLowerCase(Locale.UK);
+		
+		String[] splitStr = arg1.split("\\s+");
+		int count = 0;
+		
+		for (String result : splitStr) {
+			if (result.equals("am")) {
+				count += 1;
+			}
+		}
+
+		
+		System.out.println(count);
+		return count;
 		
 	}
 	
@@ -228,7 +283,36 @@ public class Assessment {
 	//largest("15 72 80 164") ==> 11
 	//largest("555 72 86 45 10") ==> 15
 	
-	public int largest(String arg1) {
-		return -1;
+	public static int largest(String arg1) {
+		int temp;
+		int addNum = 0;
+		int maxTotal = 0;
+		String[] char1 = null;
+		String[] splitNum = arg1.split("\\s+");
+		
+		for (int i = 0; i < splitNum.length; i++){
+			temp = splitNum[i].length();
+			
+ 		    char1 = splitNum[i].split("");    
+ 		    
+ 		   for (int x = 0; x < char1.length; x++ ){
+	            if (temp == 2 & x < char1.length - 1 ) {
+	            	addNum = Integer.parseInt(char1[x]) + Integer.parseInt(char1[x+1]);
+	 		    	System.out.println("2 num:  " + addNum);
+	 		    	if (addNum > maxTotal)
+	 		    		maxTotal = addNum;
+	 		    }
+	            else if (temp == 3 & x < char1.length - 2 ) {
+	            	addNum = Integer.parseInt(char1[x]) + Integer.parseInt(char1[x+1]) + Integer.parseInt(char1[x+2]);
+	            	System.out.println("3 num: " + addNum);
+	 		    	if (addNum > maxTotal)
+	 		    		maxTotal = addNum;
+	            }
+	        }
+		}
+		    
+		System.out.println(maxTotal);
+		
+		return maxTotal;
 	}
 }
