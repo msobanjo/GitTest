@@ -63,80 +63,9 @@ public class Assessment {
             input = new String(result); 
 			
 		}
-		
-		
-		/*
-		if (input.contains(word)) { 
-			
-           // String temp = word + " "; 
-            input = input.replaceAll(word, "&"); 
-  
-           // temp = " " + word; 
-            input = input.replaceAll(word, "&"); 
-            
-            
-            
-            for (int i = 0; i < input.length(); i++){
-            	//int [] count = new int[1];
-            	
-    		    char c = input.charAt(i);        
-    		    if (c == '&') {
-    		    	input = input.substring(i + 1);
-    		    	break;
-    		    }
-    		    	
-    		}
-            
-            // getBytes() method to convert string  
-            // into bytes[]. 
-            byte [] strAsByteArray = input.getBytes(); 
-      
-            byte [] result =  
-                       new byte [strAsByteArray.length]; 
-      
-            // Store result in reverse order into the 
-            // result byte[] 
-            for (int i = 0; i<strAsByteArray.length; i++) 
-                result[i] =  
-                 strAsByteArray[strAsByteArray.length-i-1];
-            
-            input = new String(result); 
-            
-            
-            for (int i = 0; i < input.length(); i++){
-            	int [] count = new int[1];
-            	
-    		    char c = input.charAt(i);        
-    		    if (c == '&') {
-    		    	input = input.substring(i + 1);
-    		    	break;
-    		    }
-    		    	
-    		}
-            
-        } 
-        */
-		System.out.println(input);
-		System.out.println(firstIndex);
-		System.out.println(lastIndex);
-		
-		
 		return input;
 	}
-	public static void main(String[] args) {
 	
-		//getBert("xxBertfridgebERtyy");
-		/*
-		evenlySpaced(4, 60, 9);
-		superBlock("hoopplla");
-		fizzBuzz(3);
-		*/
-		//largest("555 72 86 45 10");
-		//nMid("Chocolate", 1);
-		amISearch("I have been in Amsterdam");
-	}
-	
-
 	// Given three ints, a b c, one of them is small, one is medium and one is
 	// large. Return true if the three values are evenly spaced, so the
 	// difference between small and medium is the same as the difference between
@@ -157,8 +86,7 @@ public class Assessment {
 			result = true;
 		else
 			result = false;
-		
-		System.out.println(result);
+
 		return result;
 	}
 
@@ -209,8 +137,6 @@ public class Assessment {
  		}
 		 if (maxCount != 0)
 			 maxCount++;
-		
-		System.out.println(maxCount);
 		 
 		return maxCount;
 
@@ -235,8 +161,6 @@ public class Assessment {
 			}
 		}
 
-		
-		System.out.println(count);
 		return count;
 		
 	}
@@ -263,8 +187,6 @@ public class Assessment {
 		else if (arg1 % 5 == 0)
 			result = "buzz";
 		
-		
-		System.out.println(result);
 		return result;
 		
 	}
@@ -298,20 +220,18 @@ public class Assessment {
  		   for (int x = 0; x < char1.length; x++ ){
 	            if (temp == 2 & x < char1.length - 1 ) {
 	            	addNum = Integer.parseInt(char1[x]) + Integer.parseInt(char1[x+1]);
-	 		    	System.out.println("2 num:  " + addNum);
+	 		    
 	 		    	if (addNum > maxTotal)
 	 		    		maxTotal = addNum;
 	 		    }
 	            else if (temp == 3 & x < char1.length - 2 ) {
 	            	addNum = Integer.parseInt(char1[x]) + Integer.parseInt(char1[x+1]) + Integer.parseInt(char1[x+2]);
-	            	System.out.println("3 num: " + addNum);
+	            	
 	 		    	if (addNum > maxTotal)
 	 		    		maxTotal = addNum;
 	            }
 	        }
 		}
-		    
-		System.out.println(maxTotal);
 		
 		return maxTotal;
 	}
